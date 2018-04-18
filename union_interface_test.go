@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/graphql-go/graphql"
-	"github.com/graphql-go/graphql/testutil"
+	"github.com/appleboy/graphql"
+	"github.com/appleboy/graphql/testutil"
 )
 
 type testNamedType interface {

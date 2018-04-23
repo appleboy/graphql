@@ -17,12 +17,17 @@ type Error struct {
 	Positions     []int
 	Locations     []location.SourceLocation
 	OriginalError error
+	Extensions    ErrorExtensions
 }
 
 // implements Golang's built-in `error` interface
 func (g Error) Error() string {
 	return fmt.Sprintf("%v", g.Message)
 }
+
+// ErrorExtensions contains custom extensions that are passed through to the
+// client.
+type ErrorExtensions map[string]interface{}
 
 func NewError(message string, nodes []ast.Node, stack string, source *source.Source, positions []int, origError error) *Error {
 	if stack == "" && message != "" {
